@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+
+# AdsBot crawlers must be named explicitly: <https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt>
+User-agent: AdsBot
+Disallow: /
