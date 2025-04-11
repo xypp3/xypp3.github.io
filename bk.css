@@ -1,0 +1,122 @@
+/* Apply dark theme with neon city vibe */
+body {
+    background-color: #0f0f0f;
+    color: #e1e1e1;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Title styling with neon pink glow */
+h1 {
+    color: #ff007f; /* Neon Pink */
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f;
+}
+
+/* Style for h2 with neon number */
+h2 {
+    font-size: 1.8rem;
+    color: #e1e1e1;
+    margin-top: 20px;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ff007f;
+}
+
+.highlight-number {
+    color: #00ffff; /* Neon Cyan */
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    user-select: text; /* Allow copying only the number */
+}
+
+/* Button styles with neon pink and cyan hover effects */
+button {
+    background-color: #222222;
+    color: #ff007f; /* Neon Pink */
+    border: 2px solid #ff007f;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    margin: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #ff007f;
+    color: #222222;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Flexbox container for centering buttons and video */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Video styling */
+#video {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 30px;
+    border: 2px solid #ff007f;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ff007f;
+}
+
+/* Hide canvas by default */
+#canvas {
+    display: none;
+}
+
+/* Additional animation effect for body */
+@keyframes pulseBackground {
+    0% {
+	background-color: #0f0f0f;
+    }
+    50% {
+	background-color: #121212;
+    }
+    100% {
+	background-color: #0f0f0f;
+    }
+}
+
+body {
+    animation: pulseBackground 5s ease-in-out infinite;
+}
+
+.scrolling-text-container {
+  width: 500px; /* Adjust as needed */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scrolling-text {
+  display: inline-block;
+  padding-left: 100%; /* Start off screen */
+  animation: scroll-left 15s linear infinite; /* Adjust duration as needed */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

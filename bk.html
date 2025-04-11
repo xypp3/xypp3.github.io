@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Scan Burger King Code</title>
 	<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+	<link rel="stylesheet" href="bk.css">
 	<style>
 		body {
 			font-family: Arial, sans-serif;
@@ -23,9 +24,112 @@
 </head>
 
 <body>
+	<div class="scrolling-text-container">
+		<div class="scrolling-text">
+
+			<svg width="200px" height="200px" viewBox="0 0 24 24" fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<filter id="neon-glow-red" x="-1000%" y="-1000%" width="2000%" height="2000%"
+						filterUnits="userSpaceOnUse">
+						<feGaussianBlur stdDeviation="7" result="glow" />
+						<feColorMatrix type="matrix"
+							values="1 0 0 0 1  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" in="glow"
+							result="coloredGlow" />
+						<feMerge>
+							<feMergeNode in="coloredGlow" />
+							<feMergeNode in="SourceGraphic" />
+						</feMerge>
+					</filter>
+				</defs>
+				<g transform="scale(0.5) translate(12, 12)">
+					<path d="M21 12.6L20.3086 13.2568C19.5652 13.9631 18.4081 13.9926 17.6295 13.3253L16.8016 12.6156C16.0526 11.9737 14.9474 11.9737 14.1984 12.6156L13.3016 13.3844C12.5526 14.0263 11.4474 14.0263 10.6984 13.3844L9.80158 12.6156C9.0526 11.9737 7.9474 11.9737 7.19842 12.6156L6.37045 13.3253C5.5919 13.9926 4.4348 13.963 3.69138 13.2568L3 12.6M12 4C6.73593 4 4.5508 5.71052 3.64374 7.13061C3.04915 8.06149 3.89543 9 5 9H19C20.1046 9 20.9508 8.06149 20.3563 7.13061C19.4492 5.71052 17.2641 4 12 4ZM4.5 17H19.5C20.3284 17 21 17.6716 21 18.5V18.5C21 19.3284 20.3284 20 19.5 20H4.5C3.67157 20 3 19.3284 3 18.5V18.5C3 17.6716 3.67157 17 4.5 17Z"
+						stroke="#FF0000" stroke-width="2" stroke-linecap="round"
+						stroke-linejoin="round" filter="url(#neon-glow-red)"
+						shape-rendering="geometricPrecision" />
+				</g>
+			</svg>
+
+			<svg width="200px" height="200px" viewBox="0 0 24 24" fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<filter id="neon-glow-purple" x="-1000%" y="-1000%" width="2000%" height="2000%"
+						filterUnits="userSpaceOnUse">
+						<feGaussianBlur stdDeviation="7" result="glow" />
+						<feColorMatrix type="matrix"
+							values="1 0 0 0 1  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" in="glow"
+							result="coloredGlow" />
+						<feMerge>
+							<feMergeNode in="coloredGlow" />
+							<feMergeNode in="SourceGraphic" />
+						</feMerge>
+					</filter>
+				</defs>
+				<g transform="scale(0.5) translate(12, 12)">
+					<path d="M21 12.6L20.3086 13.2568C19.5652 13.9631 18.4081 13.9926 17.6295 13.3253L16.8016 12.6156C16.0526 11.9737 14.9474 11.9737 14.1984 12.6156L13.3016 13.3844C12.5526 14.0263 11.4474 14.0263 10.6984 13.3844L9.80158 12.6156C9.0526 11.9737 7.9474 11.9737 7.19842 12.6156L6.37045 13.3253C5.5919 13.9926 4.4348 13.963 3.69138 13.2568L3 12.6M12 4C6.73593 4 4.5508 5.71052 3.64374 7.13061C3.04915 8.06149 3.89543 9 5 9H19C20.1046 9 20.9508 8.06149 20.3563 7.13061C19.4492 5.71052 17.2641 4 12 4ZM4.5 17H19.5C20.3284 17 21 17.6716 21 18.5V18.5C21 19.3284 20.3284 20 19.5 20H4.5C3.67157 20 3 19.3284 3 18.5V18.5C3 17.6716 3.67157 17 4.5 17Z"
+						stroke="#A020F0" stroke-width="2" stroke-linecap="round"
+						stroke-linejoin="round" filter="url(#neon-glow-purple)"
+						shape-rendering="geometricPrecision" />
+				</g>
+			</svg>
+
+			<svg width="200px" height="200px" viewBox="0 0 24 24" fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<filter id="neon-glow-blue" x="-1000%" y="-1000%" width="2000%" height="2000%"
+						filterUnits="userSpaceOnUse">
+						<feGaussianBlur stdDeviation="7" result="glow" />
+						<feColorMatrix type="matrix"
+							values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" in="glow"
+							result="coloredGlow" />
+						<feMerge>
+							<feMergeNode in="coloredGlow" />
+							<feMergeNode in="SourceGraphic" />
+						</feMerge>
+					</filter>
+				</defs>
+				<g transform="scale(0.5) translate(12, 12)">
+					<path d="M21 12.6L20.3086 13.2568C19.5652 13.9631 18.4081 13.9926 17.6295 13.3253L16.8016 12.6156C16.0526 11.9737 14.9474 11.9737 14.1984 12.6156L13.3016 13.3844C12.5526 14.0263 11.4474 14.0263 10.6984 13.3844L9.80158 12.6156C9.0526 11.9737 7.9474 11.9737 7.19842 12.6156L6.37045 13.3253C5.5919 13.9926 4.4348 13.963 3.69138 13.2568L3 12.6M12 4C6.73593 4 4.5508 5.71052 3.64374 7.13061C3.04915 8.06149 3.89543 9 5 9H19C20.1046 9 20.9508 8.06149 20.3563 7.13061C19.4492 5.71052 17.2641 4 12 4ZM4.5 17H19.5C20.3284 17 21 17.6716 21 18.5V18.5C21 19.3284 20.3284 20 19.5 20H4.5C3.67157 20 3 19.3284 3 18.5V18.5C3 17.6716 3.67157 17 4.5 17Z"
+						stroke="#007FFF" stroke-width="2" stroke-linecap="round"
+						stroke-linejoin="round" filter="url(#neon-glow-blue)"
+						shape-rendering="geometricPrecision" />
+				</g>
+			</svg>
+
+			<svg width="200px" height="200px" viewBox="0 0 24 24" fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<filter id="neon-glow-orange" x="-1000%" y="-1000%" width="2000%" height="2000%"
+						filterUnits="userSpaceOnUse">
+						<feGaussianBlur stdDeviation="7" result="glow" />
+						<feColorMatrix type="matrix"
+							values="1 0 0 0 1  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" in="glow"
+							result="coloredGlow" />
+						<feMerge>
+							<feMergeNode in="coloredGlow" />
+							<feMergeNode in="SourceGraphic" />
+						</feMerge>
+					</filter>
+				</defs>
+				<g transform="scale(0.5) translate(12, 12)">
+					<path d="M21 12.6L20.3086 13.2568C19.5652 13.9631 18.4081 13.9926 17.6295 13.3253L16.8016 12.6156C16.0526 11.9737 14.9474 11.9737 14.1984 12.6156L13.3016 13.3844C12.5526 14.0263 11.4474 14.0263 10.6984 13.3844L9.80158 12.6156C9.0526 11.9737 7.9474 11.9737 7.19842 12.6156L6.37045 13.3253C5.5919 13.9926 4.4348 13.963 3.69138 13.2568L3 12.6M12 4C6.73593 4 4.5508 5.71052 3.64374 7.13061C3.04915 8.06149 3.89543 9 5 9H19C20.1046 9 20.9508 8.06149 20.3563 7.13061C19.4492 5.71052 17.2641 4 12 4ZM4.5 17H19.5C20.3284 17 21 17.6716 21 18.5V18.5C21 19.3284 20.3284 20 19.5 20H4.5C3.67157 20 3 19.3284 3 18.5V18.5C3 17.6716 3.67157 17 4.5 17Z"
+						stroke="#FFA500" stroke-width="2" stroke-linecap="round"
+						stroke-linejoin="round" filter="url(#neon-glow-orange)"
+						shape-rendering="geometricPrecision" />
+				</g>
+			</svg>
+
+		</div>
+	</div>
+
+	<marquee behavior="scroll" direction="left" scrollamount="6">
+
+	</marquee>
+
 	<h1>Scan Your Burger King Receipt</h1>
 	<button onclick="startCamera()">StartCamera</button>
 	<button onclick="scanReceipt()">Take Picture</button>
+	<h2>Your number: <span class="highlight-number" id="number">xxxx</span></h2>
 	<video id="video" autoplay></video>
 	<canvas id="canvas" style="display:none;"></canvas>
 	<script>
@@ -45,7 +149,7 @@
 			const dataURL = canvas.toDataURL('image/png');
 
 			// Show what you're sending to Tesseract
-			showImageForDebug(canvas);
+			// showImageForDebug(canvas);
 
 			const result = await Tesseract.recognize(dataURL, 'eng', {tessedit_char_whitelist: '0123456789', });
 			const text = result.data.text;
@@ -53,6 +157,10 @@
 
 			if (codeMatch) {
 				const code = codeMatch[1];
+
+				const num = document.getElementById("number");
+				num.textContent = code;
+
 				alert('Code found: ' + code + '\nYou will be redirected to the site. Please paste it manually.');
 				window.open('https://sing.tellburgerking.com/', '_blank');
 			} else {
