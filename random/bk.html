@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scan Burger King Code</title>
+	<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+			padding: 2em;
+		}
+
+		video,
+		canvas {
+			width: 100%;
+			max-width: 500px;
+			margin: 1em auto;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Scan Your Burger King Receipt</h1>
+	<button onclick="startCamera()">StartCamera</button>
+	<button onclick="scanReceipt()">Take Picture</button>
+	<video id="video" autoplay></video>
+	<canvas id="canvas" style="display:none;"></canvas>
+	<script>
+		const video = document.getElementById('video');
+		const canvas = document.getElementById('canvas');
+		const ctx = canvas.getContext('2d');
+
+		async function startCamera() {
+			const stream = await navigator.mediaDevices.getUserMedia({video: true});
+			video.srcObject = stream;
+		}
+
+		async function scanReceipt() {
+			canvas.width = video.videoWidth;
+			canvas.height = video.videoHeight;
+			ctx.drawImage(video, 0, 0);
+			const dataURL = canvas.toDataURL('image/png');
+
+			// Show what you're sending to Tesseract
+			showImageForDebug(canvas);
+
+			const result = await Tesseract.recognize(dataURL, 'eng', {tessedit_char_whitelist: '0123456789', });
+			const text = result.data.text;
+			const codeMatch = text.match(/ENTER CODE\s*[:]\s*(\d{13,})/i);
+
+			if (codeMatch) {
+				const code = codeMatch[1];
+				alert('Code found: ' + code + '\nYou will be redirected to the site. Please paste it manually.');
+				window.open('https://sing.tellburgerking.com/', '_blank');
+			} else {
+				alert('Code not found. Please try again.');
+			}
+		}
+		function showImageForDebug(canvas) {
+			const img = document.createElement('img');
+			img.src = canvas.toDataURL('image/png');
+			img.alt = 'Image sent to Tesseract';
+			img.style.maxWidth = '100%';
+			img.style.border = '2px solid #333';
+			img.style.marginTop = '1em';
+
+			// Remove any previous debug image
+			const existing = document.getElementById('debug-image');
+			if (existing) existing.remove();
+
+			img.id = 'debug-image';
+			document.body.appendChild(img);
+		}
+	</script>
+</body>
+
+</html>
