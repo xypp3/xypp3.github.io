@@ -101,7 +101,7 @@ body {
 }
 
 .scrolling-text-container {
-  width: 500px; /* Adjust as needed */
+  width: 100%;
   overflow: hidden;
   white-space: nowrap;
 }
