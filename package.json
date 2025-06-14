@@ -10,6 +10,7 @@
     "breview": "astro build && astro preview"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.12",
     "astro": "^5.9.3"
   }
 }
