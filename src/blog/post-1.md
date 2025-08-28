@@ -1,6 +1,6 @@
 ---
 title: 'my first blog post'
-pubDate: 2025-08-28
+pubDate: 2025-08-28 17:16
 description: 'TLDR; trying something new'
 author: 'xypp3'
 tags: []
