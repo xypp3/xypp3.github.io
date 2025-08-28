@@ -1,4 +1,24 @@
 ---
 const { url, title } = Astro.props
 ---
-<li><a href={url}>{title}</a></li>
+<li class="blog-card"><a class="blog-link" href={url}>{title}</a></li>
+
+<style>
+  .blog-card {
+    display: flex;
+    justify-content: center;
+    text-decoration: none !important;
+  }
+
+  .blog-link {
+    color: #5ba300;
+  }
+
+  .blog-link:visited,
+  .blog-link:active,
+  .blog-link:hover,
+  .blog-link:focus {
+    color: #5ba300;
+    text-decoration: none;
+  }
+</style>

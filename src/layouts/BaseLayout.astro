@@ -12,15 +12,14 @@ const { pageTitle } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<Header />
-		<h1>{pageTitle}</h1>
-		<slot />
+		<main>
+			<slot />
+		</main>
 		<Footer />
-		<script>
-			import "../scripts/menu.js";
-		</script>
 	</body>
 </html>

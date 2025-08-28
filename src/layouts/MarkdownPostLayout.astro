@@ -5,37 +5,117 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <p>{frontmatter.pubDate.toLocaleDateString()}</p>
-  <p><em>{frontmatter.description}</em></p>
-  <p>Written by {frontmatter.author}</p>
-  <p> Published on: {frontmatter.pubDate.toString().slice(0,10)}</p>
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+  <article class="blog-post">
+    <!-- Image with placeholder -->
+    {frontmatter.image && frontmatter.image.url && (
+      <div class="image-container">
+        <img 
+          src={frontmatter.image.url} 
+          alt={frontmatter.image.alt} 
+          width="600" 
+          height="400" 
+          loading="lazy"
+          onerror="this.src='/placeholder-image.jpg'" 
+        />
+      </div>
+    )}
 
-  <slot />
+    <!-- Title -->
+    <h1 class="post-title">{frontmatter.title}</h1>
 
-  <div class="tags">
-    {frontmatter.tags?.map((tag: string) => (
-      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-    ))}
-  </div>
+    <!-- Description -->
+    <p class="post-description">{frontmatter.description}</p>
+
+    <!-- Author and Date -->
+    <div class="meta">
+      <span class="author">{frontmatter.author}</span>
+      <span class="dot">•</span>
+      <span class="date">{(frontmatter.pubDate instanceof Date ? frontmatter.pubDate : new Date(frontmatter.pubDate)).toLocaleDateString()}</span>
+    </div>
+
+    <!-- Post content -->
+    <div class="content">
+      <slot />
+    </div>
+  </article>
 </BaseLayout>
 
 <style>
-	a {
-	  color: #00539F;
-	}
-  
-	.tags {
-	  display: flex;
-	  flex-wrap: wrap;
-	}
-  
-	.tag {
-	  margin: 0.25em;
-	  border: dotted 1px #a1a1a1;
-	  border-radius: .5em;
-	  padding: .5em 1em;
-	  font-size: 1.15em;
-	  background-color: #F8FCFD;
-	}
-  </style>
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.image-container {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 1.25rem;
+  background-color: #89CE00; /* placeholder background */
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.post-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  color: #89CE00;
+}
+
+.post-description {
+  font-size: 1.1rem;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #89CE00;
+  margin-bottom: 2rem;
+}
+
+.meta .dot {
+  font-weight: bold;
+  color: #89CE00;
+}
+
+.content {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  color: #89CE00;
+  text-decoration: none;
+  background-color: #f8fcfd;
+  transition: all 0.2s ease;
+}
+</style>

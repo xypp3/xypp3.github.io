@@ -1,13 +1,32 @@
 ---
 import Navigation from "./Navigation.astro";
-import Hamburger from "./Hamburger.astro";
 ---
 
 <div class="nav-links">
   <header>
     <nav>
-      <Hamburger />
       <Navigation />
     </nav>
   </header>
 </div>
+
+<style>
+  nav {
+  display: flex;
+  justify-content: center;
+  text-transform: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none !important;
+  }
+
+  a:visited,
+  a:active,
+  a:hover,
+  a:focus {
+    color: inherit;
+    text-decoration: none !important;
+  }
+</style>

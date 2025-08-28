@@ -1,22 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
-const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
-const pageTitle = "Home Page";
+import Social from '../components/Social.astro';
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
-  <div class="tags">
-    {tags.map((tag) => (
-      <p><a href={`/tags/${tag}`}>{tag}</a></p>
-    ))}
-  </div>
+<BaseLayout>
+  <h1>Hello I'm petr (also known as xypp3) </h1>
+  <h3>Welcome to my little side of the internet</h3>
+  <p>
+    I'm a fan of a broad range of CS topics from programming languages to kernels and HPC. 
+    Outside of computers I also like cooking, food and stories (TTRPG games I run and play (Blades in the Dark and DnD 5e)).
+  </p>
+  <p>
+    You can also find my code over here:
+  </p>
+  <Social platform="github" username="xypp3" />
 </BaseLayout>
 
 <style>
   a {
-    color: #00539F;
+    color: #89CE00;
   }
 
   .tags {
@@ -26,10 +28,10 @@ const pageTitle = "Home Page";
 
   .tag {
     margin: 0.25em;
-    border: dotted 1px #a1a1a1;
+    border: dotted 1px #89CE00;
     border-radius: .5em;
     padding: .5em 1em;
     font-size: 1.15em;
-    background-color: #F8FCFD;
+    background-color: #89CE00;
   }
 </style>
