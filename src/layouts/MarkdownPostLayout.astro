@@ -88,6 +88,7 @@ const { frontmatter } = Astro.props;
   font-size: 0.95rem;
   color: #89CE00;
   margin-bottom: 2rem;
+  text-align: left;
 }
 
 .meta .dot {
@@ -99,7 +100,14 @@ const { frontmatter } = Astro.props;
   font-size: 1.05rem;
   line-height: 1.6;
   margin-bottom: 2rem;
+  width: 100%;
+  text-align: left;
 }
+
+.content p {
+  text-align: justify;
+}
+
 
 .tags {
   display: flex;
