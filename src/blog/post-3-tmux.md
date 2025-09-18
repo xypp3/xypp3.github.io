@@ -29,7 +29,7 @@ You will use commands/bindings/hotkeys to move around in tmux. The operations ar
     - `ctrl+B D`, detaches you from your tmux session (in remote context tmux is staying alive while your local device disconnects from the ssh)
     - `ctrl+D` to disconnect tmux from ssh i.e. fully leaving the server
 
-## Additionally goodies
+## Additional goodies
 Some small tweaks that improve my tmux life:
 
 ### In ssh config
